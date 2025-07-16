@@ -1,0 +1,24 @@
+# Input example for the REINVENT4 data pipeline
+
+input_csv_file = "test.csv"
+smiles_column = "SMILES"
+separator = "\t"
+output_smiles_file = "processed.smi"
+num_procs = 1
+chunk_size = 420
+
+[filter]
+elements = ["I", "O", "Cl", "N", "C", "F", "S", "Br"]   # возможно исключение I
+transforms = ["standard"]
+min_heavy_atoms = 9         # >= 9, т.к. примерно такие молекулы проходят ГЭБ
+max_heavy_atoms = 50        # <= 50 тоже эвристика для проницаемости ГЭБ
+max_mol_weight = 440        # < 500 Da или г/моль для прохождения ГЭБ (!)
+min_carbons = 2
+max_num_rings = 7           # <= 7, Избыток колец мешает прохождению ГЭБ
+max_ring_size = 7           # <= 7, Большие кольца несут риски нестабильности и токсичности
+keep_stereo = true
+keep_isotope_molecules = true
+uncharge = true
+kekulize = false
+randomize_smiles = false
+report_errors = true

@@ -1,0 +1,15 @@
+tqdm
+numpy
+openpyxl
+pandas
+polars
+rdkit
+mordred
+padelpy
+scikit-learn
+xgboost
+catboost
+seaborn
+matplotlib
+networkx
+aizynthfinder[all]
